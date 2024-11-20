@@ -8,23 +8,23 @@ document.cookie =
 document.cookie =
   "username=JohnDoe; expires=Thu, 18 Dec 2024 12:00:00 UTC; path=/; SameSite=Lax";
 
-// Getting a cookie
-function getCookie(name) {
-  let cookieArr = document.cookie.split(";"); // Split cookies into array
+// Getting a cookie using an arrow function
+const getCookie = (name) => {
+  let cookieArr = document.cookie.split(";");
   for (let i = 0; i < cookieArr.length; i++) {
-    let cookie = cookieArr[i].trim(); // Trim whitespace
+    let cookie = cookieArr[i].trim();
     if (cookie.indexOf(name + "=") === 0) {
       return cookie.substring(name.length + 1); // Return cookie value
     }
   }
-  return null; // Return null if cookie not found
-}
+  return null;
+};
 
 let username = getCookie("username");
 console.log(username); // Outputs: JohnDoe
 
-// Fonction pour afficher les cookies enregistrés dans le localStorage
-function afficherCookies() {
+// Fonction pour afficher les cookies enregistrés dans le localStorage avec une fonction fléchée
+const afficherCookies = () => {
   const cookieList = document.getElementById("cookie-list");
   cookieList.innerHTML = ""; // Vide la liste avant de la remplir
 
@@ -37,10 +37,10 @@ function afficherCookies() {
     }`;
     cookieList.appendChild(cookieElement);
   });
-}
+};
 
-// Fonction pour sauvegarder un cookie dans le localStorage
-function sauvegarderCookie() {
+// Fonction pour sauvegarder un cookie dans le localStorage avec une fonction fléchée
+const sauvegarderCookie = () => {
   const cookies = JSON.parse(localStorage.getItem("cookies")) || [];
   cookies.push({
     nom: "cookie_utilisateur",
@@ -48,9 +48,9 @@ function sauvegarderCookie() {
   });
   localStorage.setItem("cookies", JSON.stringify(cookies));
   afficherCookies();
-}
+};
 
-// Ajoute un événement au bouton pour accepter le cookie
+// Ajoute un événement au bouton pour accepter le cookie avec une fonction fléchée
 document.getElementById("accept-cookie").addEventListener("click", () => {
   sauvegarderCookie();
   document.getElementById("cookie-status").textContent =
