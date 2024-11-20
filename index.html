@@ -8,12 +8,46 @@
   </head>
   <body>
     <div class="container">
+      <div align="center">
+        <img
+          src="https://static.vecteezy.com/system/resources/previews/008/688/098/non_2x/cookie-logo-free-vector.jpg"
+          width="20%"
+        />
+      </div>
       <h1>Accepter le Cookie</h1>
-      <p id="cookie-status">Cliquez sur le bouton pour accepter le cookie.</p>
-      <button id="accept-cookie">Accepter le cookie</button>
+      <p id="cookie-status">
+        Veuillez entrer vos informations et accepter le cookie.
+      </p>
+
+      <!-- Formulaire pour entrer des informations -->
+      <form id="cookie-form">
+        <label for="données du cookie"></label>
+        <input
+          type="text"
+          id="données du cookie"
+          placeholder="Données du cookie:"
+          required
+        /><br />
+
+        <label for="entrez date de validation du cookie"></label>
+        <input
+          type="texte"
+          id="entrez date de validation du cookie"
+          placeholder="Entrez date de validation du cookie:"
+          required
+        /><br />
+
+        <button type="submit" id="accept-cookie">Accepter le cookie</button>
+      </form>
 
       <h3>Cookies enregistrés :</h3>
       <div id="cookie-list"></div>
+    </div>
+
+    <br />
+    <div id="toast" class="toast">
+      <span id="toast-message"></span>
+      <!-- Espace pour le message -->
     </div>
 
     <script src="script.js"></script>
